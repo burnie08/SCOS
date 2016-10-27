@@ -24,3 +24,6 @@ Route::resource('admin/users', 'Admin\\UsersController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::resource('Instructors/swimmers', 'Instructors\\SwimmersController');
+Route::resource('proficiency-levels', 'SwimAdmin\\ProficiencyLevelsController');
