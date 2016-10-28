@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "63eff0e666845c0688a5e97465be754c",
-    "content-hash": "b809085abb7e132c395f01dac817a735",
+    "hash": "6babde6b72094df35763f6576bfd6b2c",
+    "content-hash": "853340a839982c9663c1e9205a6399fa",
     "packages": [
         {
             "name": "appzcoder/crud-generator",
@@ -880,6 +880,53 @@
                 "php"
             ],
             "time": "2016-09-16 12:04:44"
+        },
+        {
+            "name": "nwidart/db-exporter",
+            "version": "1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nWidart/DbExporter.git",
+                "reference": "ce8da8782ed1e478a761ec51cd4dedeff44ac654"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nWidart/DbExporter/zipball/ce8da8782ed1e478a761ec51cd4dedeff44ac654",
+                "reference": "ce8da8782ed1e478a761ec51cd4dedeff44ac654",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "4.*|5.*",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Nwidart\\DbExporter": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Widart",
+                    "email": "n.widart@gmail.com"
+                }
+            ],
+            "description": "Export your database quickly and easily as a Laravel Migration and all the data as a Seeder class.",
+            "keywords": [
+                "artisan",
+                "command",
+                "database",
+                "export",
+                "laravel",
+                "migrations",
+                "php",
+                "seed"
+            ],
+            "time": "2015-04-24 05:56:41"
         },
         {
             "name": "paragonie/random_compat",

@@ -182,6 +182,7 @@ return [
         // For crud generator & html
         Appzcoder\CrudGenerator\CrudGeneratorServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Nwidart\DbExporter\DbExportHandlerServiceProvider::class,
     ],
 
     /*
@@ -232,6 +233,7 @@ return [
 
         'Form' => Collective\Html\FormFacade::class,
         'HTML' => Collective\Html\HtmlFacade::class,
+        'Str' => Illuminate\Support\Str::class,
     ],
 
 ];

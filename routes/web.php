@@ -27,3 +27,11 @@ Route::get('/home', 'HomeController@index');
 
 Route::resource('Instructors/swimmers', 'Instructors\\SwimmersController');
 Route::resource('proficiency-levels', 'SwimAdmin\\ProficiencyLevelsController');
+
+Route::resource('admin/skill/store', 'SwimAdmin\\SkillController@store');
+Route::resource('admin/skill/{card_id}/showAll', 'SwimAdmin\\SkillController@showAll');
+Route::resource('admin/skill/{card_id}/create', 'SwimAdmin\\SkillController@create');
+Route::resource('admin/skill/{id}/delete', 'SwimAdmin\\SkillController@destroy');
+Route::resource('admin/skill/{id}/edit', 'SwimAdmin\\SkillController@edit');
+Route::resource('admin/skill/{id}/update', 'SwimAdmin\\SkillController@update');
+Route::resource('admin/skill-cards', 'SwimAdmin\\SkillCardsController');
