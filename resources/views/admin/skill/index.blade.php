@@ -1,12 +1,16 @@
-@extends('layouts.bootstrap')
+@extends('layouts.matrix') @section('content')
 
-@section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Skill</div>
-                    <div class="panel-body">
+
+<div class="row-fluid">
+    <div class="span12">
+        <div class="widget-box">
+            <div class="widget-title"> <span class="icon"> <i class="icon-list"></i> </span>
+                <h5>Skill Cards </h5>
+            </div>
+                <div class="row" style="margin-top:20px;">
+                    <div class="col-sm-10 col-sm-offset-1 col-xs-12 col-xs-offset-0">
+                        
+                        
 
                         <a href="{{ url('/admin/skill') }}/{{$card->id}}/create" class="btn btn-primary btn-xs" title="Add New Skill"><span class="glyphicon glyphicon-plus" aria-hidden="true"/></a>
                         <br/>
