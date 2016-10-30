@@ -1,4 +1,10 @@
-@extends('layouts.matrix') @section('content')
+@extends('layouts.matrix') 
+
+@section('dashboard')
+    @include('admin.skill-cards.skill-dashboard') 
+@endsection
+    
+@section('content')
 
 
 
@@ -28,9 +34,11 @@
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->name }}</td>
                                         <td>
-                                            <a href="{{ url('/admin/skill/' . $item->id.'/showAll') }}" class="btn btn-success btn-xs" title="View SkillCard"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" /></a>
+                                            
                                             <a href="{{ url('/admin/skill-cards/' . $item->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit SkillCard"><span class="glyphicon glyphicon-pencil" aria-hidden="true" /></a>
-                                            {!! Form::open([ 'method'=>'DELETE', 'url' => ['/admin/skill-cards', $item->id], 'style' => 'display:inline' ]) !!} {!! Form::button('<span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete SkillCard" />', array( 'type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'title' => 'Delete SkillCard', 'onclick'=>'return confirm("Confirm delete?")' )) !!} {!! Form::close() !!}
+                                            {!! Form::open([ 'method'=>'DELETE', 'url' => ['/admin/skill-cards', $item->id], 'style' => 'display:inline' ]) !!} {!! Form::button('<span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete SkillCard" />', array( 'type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'title' => 'Delete SkillCard', 'onclick'=>'return confirm("Confirm delete?")' )) !!}
+                                            <a href="{{ url('/admin/skill/' . $item->id.'/showAll') }}" class="btn btn-success btn-xs" title="View SkillCard"><span>View Skills&nbsp;</span><span class="glyphicon glyphicon-eye-open" aria-hidden="true" /></a>
+                                            {!! Form::close() !!}
                                         </td>
                                     </tr>
                                     @endforeach

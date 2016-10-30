@@ -1,10 +1,16 @@
-@extends('layouts.matrix') @section('content')
+@extends('layouts.matrix') 
+
+@section('dashboard')
+    @include('admin.skill-cards.skill-dashboard') 
+@endsection
+
+@section('content')
 
 
 
         <div class="widget-box">
             <div class="widget-title"> <span class="icon"> <i class="icon-list"></i> </span>
-                <h5>Skill Cards </h5>
+                <h5><a  href="{{ url('admin/skill-cards/') }}">Cards</a> &gt;Edit Skill Card </h5>
             </div>
                 <div class="row" style="margin-top:20px;">
                     <div class="col-sm-10 col-sm-offset-1 col-xs-12 col-xs-offset-0">
