@@ -6,9 +6,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    
-    
-   
+
+
+
 
     <link rel="stylesheet" href="/css/fullcalendar.css" />
     <link rel="stylesheet" href="/css/matrix-style.css" />
@@ -16,40 +16,42 @@
     <link href="/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/jquery.gritter.css" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
-   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
+
     <style>
-        .navbar{
-            min-height:inherit;
-            border:none;
+        .navbar {
+            min-height: inherit;
+            border: none;
         }
+        
         #user-nav > ul {
-         border:none;
-         
+            border: none;
         }
-        .table th
-        {
+        
+        .table th {
             text-align: left;
         }
+        
         .form-horizontal .control-label {
             padding-top: 15px;
-            width:auto;
+            width: auto;
         }
-        @media (max-width: 480px)
-            {
+        
+        @media (max-width: 480px) {
             .form-horizontal .control-label {
                 padding-left: 20px;
             }
         }
-        @media (min-width: 992px)
-        {
+        
+        @media (min-width: 992px) {
             .col-md-4.control-label {
                 width: 33.33333333%;
             }
         }
+
     </style>
 </head>
 
@@ -195,19 +197,16 @@
             </div>
             <!--End-Action boxes-->
             <!-- First Content Area -->
-            <div class="container-fluid text-center">
-                <div class="row content">
+            <div class="row-fluid">
 
-                    <div class="col-sm-12 text-left">
-                    @if (Session::has('flash_message'))
-                    <div class="alert alert-success">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        {{ Session::get('flash_message') }}
-                    </div>
-                    @endif @yield('content')
-
-                    </div>
+                @if (Session::has('flash_message'))
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{ Session::get('flash_message') }}
                 </div>
+
+
+                @endif @yield('content')
             </div>
 
 
@@ -573,4 +572,5 @@
 </script>
 <script src="{{ URL::asset('js/AjaxisMaterialize.js')}}"></script>
 <script src="{{ URL::asset('js/scaffold-interface-js/customA.js')}}"></script>
+
 </html>

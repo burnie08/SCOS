@@ -27,5 +27,8 @@ class Skill extends Model
      */
     protected $fillable = ['skill_card_id', 'name'];
 
-    
+    public function skillcard()
+    {
+        return $this->hasMany('\App\SwimAdmin\SkillCard');
+    }
 }

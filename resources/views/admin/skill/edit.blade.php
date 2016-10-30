@@ -1,11 +1,10 @@
 @extends('layouts.matrix') @section('content')
 
 
-<div class="row-fluid">
-    <div class="span12">
+
         <div class="widget-box">
             <div class="widget-title"> <span class="icon"> <i class="icon-list"></i> </span>
-                <h5>Skill Cards </h5>
+                <h5>Edit Skill </h5>
             </div>
                 <div class="row" style="margin-top:20px;">
                     <div class="col-sm-10 col-sm-offset-1 col-xs-12 col-xs-offset-0">
@@ -51,6 +50,5 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+       
 @endsection

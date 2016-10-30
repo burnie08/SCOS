@@ -1,25 +1,24 @@
 @extends('layouts.matrix') @section('content')
 
 
-<div class="row-fluid">
-    <div class="span12">
+
         <div class="widget-box">
             <div class="widget-title"> <span class="icon"> <i class="icon-list"></i> </span>
-                <h5>Skill Cards </h5>
+                <h5> <a style='text-decoration: underline;' href="{{ url('admin/skill-cards/') }}">Cards</a> &gt; Skills For <span style="color:#337ab7;">{{$card->name}}</span></h5>
             </div>
                 <div class="row" style="margin-top:20px;">
                     <div class="col-sm-10 col-sm-offset-1 col-xs-12 col-xs-offset-0">
                         
                         
 
-                        <a href="{{ url('/admin/skill') }}/{{$card->id}}/create" class="btn btn-primary btn-xs" title="Add New Skill"><span class="glyphicon glyphicon-plus" aria-hidden="true"/></a>
+                        <a href="{{ url('/admin/skill') }}/{{$card->id}}/create" class="btn btn-primary btn-xs" title="Add New Skill">Create Skill&nbsp;&nbsp;<span class="glyphicon glyphicon-plus" aria-hidden="true"/></a>
                         <br/>
                         <br/>
                         <div class="table-responsive">
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th> Skill Card Id </th><th> Name </th><th>Actions</th>
+                                        <th>ID</th><th> Skill Card Id </th><th> Skill </th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -52,6 +51,5 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        
 @endsection

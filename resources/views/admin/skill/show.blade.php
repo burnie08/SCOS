@@ -10,7 +10,7 @@
                 <div class="row" style="margin-top:20px;">
                     <div class="col-sm-10 col-sm-offset-1 col-xs-12 col-xs-offset-0">
 
-                        <a href="{{ url('admin/skill/' . $skill->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit Skill"><span class="glyphicon glyphicon-pencil" aria-hidden="true"/></a>
+                        <a href="{{ url('admin/skill/' . $skill->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit Skill"><span class="glyphicon glyphicon-pencil" aria-hidden="true"/>Create Skill</a>Create Skill
                         {!! Form::open([
                             'method'=>'DELETE',
                             'url' => ['admin/skill', $skill->id],

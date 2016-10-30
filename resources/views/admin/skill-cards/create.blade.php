@@ -1,12 +1,15 @@
-@extends('layouts.bootstrap')
+@extends('layouts.matrix') @section('content')
 
-@section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Create New Skill Card</div>
-                    <div class="panel-body">
+
+
+    
+        <div class="widget-box">
+            <div class="widget-title"> <span class="icon"> <i class="icon-list"></i> </span>
+                <h5>Create New Skill Card</h5>
+            </div>
+            <div class="container-fluid">
+                <div class="row" style="margin-top:20px;">
+                    <div class="col-md-8 col-md-offset-2">
 
                         @if ($errors->any())
                             <ul class="alert alert-danger">
@@ -38,5 +41,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    
+
 @endsection

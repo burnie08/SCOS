@@ -36,7 +36,8 @@ class SkillController extends Controller
      */
     public function create($skill_card_id)
     {
-        return view('admin.skill.create',['skill_card_id'=>$skill_card_id]);
+        $card = SkillCard::findOrFail($skill_card_id);
+        return view('admin.skill.create',compact('card'));
     }
 
     /**
