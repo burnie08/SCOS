@@ -35,7 +35,7 @@ Route::get('/home', 'HomeController@index');
 Route::resource('Instructors/swimmers', 'Instructors\\SwimmersController');
 Route::resource('proficiency-levels', 'SwimAdmin\\ProficiencyLevelsController');
 
-Route::get('admin/skill/store', 'SwimAdmin\\SkillController@store');
+Route::post('admin/skill/store', 'SwimAdmin\\SkillController@store');
 Route::get('admin/skill/{card_id}/showAll', 'SwimAdmin\\SkillController@showAll');
 Route::get('admin/skill/{card_id}/create', 'SwimAdmin\\SkillController@create');
 Route::get('admin/skill/{id}/delete', 'SwimAdmin\\SkillController@destroy');
