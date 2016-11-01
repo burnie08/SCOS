@@ -25,7 +25,7 @@
                             </ul>
                         @endif
 
-                        {!! Form::open(['url' => '/admin/skill-cards', 'class' => 'form-horizontal', 'files' => true]) !!}
+                        {!! Form::open(['url' => '/admin/skill-cards', 'method' => 'post' 'class' => 'form-horizontal', 'files' => true]) !!}
 
                                     <div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
                 {!! Form::label('name', 'Name', ['class' => 'col-md-4 control-label']) !!}
