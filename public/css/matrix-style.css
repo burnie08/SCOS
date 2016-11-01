@@ -1273,6 +1273,7 @@ form {
 }
 /* Responsive design */
 @media (max-width: 480px) {
+
 #header h1 {
 	top: 10px; left:5px;
 	margin: 3px auto;

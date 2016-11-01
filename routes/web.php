@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('search', function () {
+    return view('Instructors.search.index');
+});
+
+
 Route::get('admin', 'Admin\\AdminController@index');
 Route::get('admin/give-role-permissions', 'Admin\\AdminController@getGiveRolePermissions');
 Route::post('admin/give-role-permissions', 'Admin\\AdminController@postGiveRolePermissions');
@@ -26,6 +31,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::resource('Instructors/swimmers', 'Instructors\\SwimmersController');
+
 Route::resource('proficiency-levels', 'SwimAdmin\\ProficiencyLevelsController');
 
 Route::resource('admin/skill/store', 'SwimAdmin\\SkillController@store');
