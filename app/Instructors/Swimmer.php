@@ -27,5 +27,10 @@ class Swimmer extends Model
      */
     protected $fillable = ['first_name', 'last_name'];
 
-    
+    public static function lastNamesLike($last_name)
+    {
+       return Swimmer::query()
+        ->where('last_name', 'like', $last_name.'%')
+        ->get();
+    }
 }

@@ -106,6 +106,12 @@ class SwimmersController extends Controller
 
         return redirect('Instructors/swimmers');
     }
+    public function lastNamesLike(Request $request)
+    {
+        $last_name = $request->last_name;
+        $swimmers = Swimmer::lastNamesLike($last_name);
+        return view('Instructors.search.results',['swimmers'=>$swimmers]);
+    }
 
     /**
      * Remove the specified resource from storage.

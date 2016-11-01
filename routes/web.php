@@ -15,6 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('search', function () {
+   return view('Instructors.search.search');
+});
+Route::get('search/lastNamesLike', 'Instructors\\SwimmersController@lastNamesLike');
+
+
+
 Route::get('admin', 'Admin\\AdminController@index');
 Route::get('admin/give-role-permissions', 'Admin\\AdminController@getGiveRolePermissions');
 Route::post('admin/give-role-permissions', 'Admin\\AdminController@postGiveRolePermissions');
@@ -35,3 +42,4 @@ Route::get('admin/skill/{id}/delete', 'SwimAdmin\\SkillController@destroy');
 Route::get('admin/skill/{id}/edit', 'SwimAdmin\\SkillController@edit');
 Route::get('admin/skill/{id}/update', 'SwimAdmin\\SkillController@update');
 Route::resource('admin/skill-cards', 'SwimAdmin\\SkillCardsController');
+

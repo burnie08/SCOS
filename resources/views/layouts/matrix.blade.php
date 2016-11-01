@@ -9,7 +9,7 @@
 
 
 
-
+    <link rel="stylesheet" href="/css/select2.css" />
     <link rel="stylesheet" href="/css/fullcalendar.css" />
     <link rel="stylesheet" href="/css/matrix-style.css" />
     <link rel="stylesheet" href="/css/matrix-media.css" />
@@ -18,8 +18,9 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    
 
     <style>
         .navbar {
@@ -123,8 +124,14 @@
                         <a href="index.html"> <i class="icon-dashboard"></i> <span class="label label-important">20</span> My Dashboard </a>
                     </li>
                     <li class="bg_lg ">
-                        <a href="/admin/skill-cards"> <i class="icon-th"></i> Skill Cards</a>
+                        <a href="/admin/skill-cards"> <i class="icon-th"></i>Skill Cards</a>
                     </li>
+                    
+                    <li class="bg_ls ">
+                        <a href="/search"> <i class="icon-search"></i>Search</a>
+                    </li>
+                    
+                    
                     <li class="bg_ly">
                         <a href="widgets.html"> <i class="icon-inbox"></i><span class="label label-success">101</span> Widgets </a>
                     </li>
@@ -472,28 +479,33 @@
     </div>
 
     <!--end-Footer-part-->
+    
+    <!--end-Footer-part-->
 
-    <script src="/js/excanvas.min.js"></script>
-    <script src="/js/jquery.min.js"></script>
-    <script src="/.env"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/jquery.flot.min.js"></script>
-    <script src="/js/jquery.flot.resize.min.js"></script>
-    <script src="/js/jquery.peity.min.js"></script>
-    <script src="/js/fullcalendar.min.js"></script>
-    <script src="/js/matrix.js"></script>
-    <script src="/js/matrix.dashboard.js"></script>
-    <script src="/js/jquery.gritter.min.js"></script>
-    <script src="/js/matrix.interface.js"></script>
-    <script src="/js/matrix.chat.js"></script>
-    <script src="/js/jquery.validate.js"></script>
-    <script src="/js/matrix.form_validation.js"></script>
-    <script src="/js/jquery.wizard.js"></script>
-    <script src="/js/jquery.uniform.js"></script>
-    <script src="/js/select2.min.js"></script>
-    <script src="/js/matrix.popover.js"></script>
-    <script src="/js/jquery.dataTables.min.js"></script>
-    <script src="/js/matrix.tables.js"></script>
+<script src="/js/excanvas.min.js"></script> 
+<script src="/js/jquery.min.js"></script> 
+<script src="/js/jquery.ui.custom.js"></script> 
+<script src="/js/bootstrap.min.js"></script> 
+<script src="/js/jquery.flot.min.js"></script> 
+<script src="/js/jquery.flot.resize.min.js"></script> 
+<script src="/js/jquery.peity.min.js"></script> 
+<script src="/js/fullcalendar.min.js"></script> 
+<script src="/js/matrix.js"></script> 
+<script src="/js/matrix.dashboard.js"></script> 
+<script src="/js/jquery.gritter.min.js"></script> 
+<script src="/js/matrix.interface.js"></script> 
+<script src="/js/matrix.chat.js"></script> 
+<script src="/js/jquery.validate.js"></script> 
+<script src="/js/matrix.form_validation.js"></script> 
+<script src="/js/jquery.wizard.js"></script> 
+<script src="/js/jquery.uniform.js"></script> 
+<script src="/js/select2.min.js"></script> 
+<script src="/js/matrix.popover.js"></script> 
+<script src="/js/select2.min.js"></script> 
+<script src="/js/jquery.dataTables.min.js"></script> 
+<script src="/js/matrix.tables.js"></script> 
+
+    
 
     <script type="text/javascript">
         // This function is called from the pop-up menus to transfer to
@@ -521,13 +533,12 @@
 
     </script>
 </body>
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
 <script>
     var baseURL = "{{URL::to('/')}}"
 
 </script>
-<script src="{{ URL::asset('js/AjaxisMaterialize.js')}}"></script>
-<script src="{{ URL::asset('js/scaffold-interface-js/customA.js')}}"></script>
+
 
 </html>
