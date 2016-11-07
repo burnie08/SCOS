@@ -25,6 +25,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Skill Card Name </th>
+                                        <th>Skill Card Short Name </th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -33,6 +34,7 @@
                                     <tr>
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->name }}</td>
+                                        <td>{{ $item->short_name }}</td>
                                         <td>
                                             
                                             <a href="{{ url('/admin/skill-cards/' . $item->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit SkillCard"><span class="glyphicon glyphicon-pencil" aria-hidden="true" /></a>

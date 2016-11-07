@@ -25,7 +25,7 @@ class SkillCard extends Model
      *
      * @var array
      */
-    protected $fillable = ['skill_id', 'name'];
+    protected $fillable = ['skill_id', 'name', 'short_name'];
 
     public function skills()
     {

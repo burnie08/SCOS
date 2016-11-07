@@ -31,6 +31,7 @@
                                         <th>ID</th><td>{{ $skillcard->id }}</td>
                                     </tr>
                                     <tr><th> Name </th><td> {{ $skillcard->name }} </td></tr>
+                                    <tr><th> Short Name </th><td> {{ $skillcard->short_name }} </td></tr>
                                 </tbody>
                             </table>
                         </div>
