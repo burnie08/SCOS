@@ -38,11 +38,12 @@ Route::get('/home', 'HomeController@index');
 Route::resource('Instructors/swimmers', 'Instructors\\SwimmersController');
 Route::resource('proficiency-levels', 'SwimAdmin\\ProficiencyLevelsController');
 
-Route::post('admin/skill/store', 'SwimAdmin\\SkillController@store');
-Route::get('admin/skill/{card_id}/showAll', 'SwimAdmin\\SkillController@showAll');
-Route::get('admin/skill/{card_id}/create', 'SwimAdmin\\SkillController@create');
-Route::get('admin/skill/{id}/delete', 'SwimAdmin\\SkillController@destroy');
-Route::get('admin/skill/{id}/edit', 'SwimAdmin\\SkillController@edit');
-Route::get('admin/skill/{id}/update', 'SwimAdmin\\SkillController@update');
-Route::resource('admin/skill-cards', 'SwimAdmin\\SkillCardsController');
+Route::post('SwimAdmin/skill/store', 'SwimAdmin\\SkillController@store');
+Route::get('SwimAdmin/skill/{card_id}/showAll', 'SwimAdmin\\SkillController@showAll');
+Route::get('SwimAdmin/skill/{card_id}/create', 'SwimAdmin\\SkillController@create');
+Route::post('SwimAdmin/skill/{id}/delete', 'SwimAdmin\\SkillController@destroy');
+Route::get('SwimAdmin/skill/{id}/edit', 'SwimAdmin\\SkillController@edit');
+Route::post('SwimAdmin/skill/{id}/update', 'SwimAdmin\\SkillController@update');
+
+Route::resource('SwimAdmin/skill-cards', 'SwimAdmin\\SkillCardsController');
 

@@ -1,25 +1,23 @@
-@extends('layouts.matrix') @section('content')
+@extends('layouts.bootstrap')
 
+@section('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">SkillCard {{ $skillcard->id }}</div>
+                    <div class="panel-body">
 
-<div class="row-fluid">
-    <div class="span12">
-        <div class="widget-box">
-            <div class="widget-title"> <span class="icon"> <i class="icon-list"></i> </span>
-                <h5>Skill Cards </h5>
-            </div>
-                <div class="row" style="margin-top:20px;">
-                    <div class="col-sm-10 col-sm-offset-1 col-xs-12 col-xs-offset-0">
-
-                        <a href="{{ url('admin/skill/' . $skill->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit Skill"><span class="glyphicon glyphicon-pencil" aria-hidden="true"/>Create Skill</a>Create Skill
+                        <a href="{{ url('SwimAdmin/skill-cards/' . $skillcard->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit SkillCard"><span class="glyphicon glyphicon-pencil" aria-hidden="true"/></a>
                         {!! Form::open([
                             'method'=>'DELETE',
-                            'url' => ['admin/skill', $skill->id],
+                            'url' => ['admin/skillcards', $skillcard->id],
                             'style' => 'display:inline'
                         ]) !!}
                             {!! Form::button('<span class="glyphicon glyphicon-trash" aria-hidden="true"/>', array(
                                     'type' => 'submit',
                                     'class' => 'btn btn-danger btn-xs',
-                                    'title' => 'Delete Skill',
+                                    'title' => 'Delete SkillCard',
                                     'onclick'=>'return confirm("Confirm delete?")'
                             ))!!}
                         {!! Form::close() !!}
@@ -30,9 +28,10 @@
                             <table class="table table-borderless">
                                 <tbody>
                                     <tr>
-                                        <th>ID</th><td>{{ $skill->id }}</td>
+                                        <th>ID</th><td>{{ $skillcard->id }}</td>
                                     </tr>
-                                    <tr><th> Skill Card Id </th><td> {{ $skill->skill_card_id }} </td></tr><tr><th> Name </th><td> {{ $skill->name }} </td></tr>
+                                    <tr><th> Name </th><td> {{ $skillcard->name }} </td></tr>
+                                    <tr><th> Short Name </th><td> {{ $skillcard->short_name }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

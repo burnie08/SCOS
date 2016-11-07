@@ -1,7 +1,7 @@
 @extends('layouts.matrix') 
 
 @section('dashboard')
-    @include('admin.skill-cards.skill-dashboard') 
+    @include('SwimAdmin.skill-cards.skill-dashboard') 
 @endsection
 
 @section('content')
@@ -10,7 +10,7 @@
 
         <div class="widget-box">
             <div class="widget-title"> <span class="icon"> <i class="icon-list"></i> </span>
-                <h5><a href="http://localhost:8000/admin/skill/{{$skill->skill_card_id}}/showAll">Skills</a>&nbsp;&gt;&nbsp;Edit Skill </h5>
+                <h5><a href="http://localhost:8000/SwimAdmin/skill/{{$skill->skill_card_id}}/showAll">Skills</a>&nbsp;&gt;&nbsp;Edit Skill </h5>
             </div>
                 <div class="row" style="margin-top:20px;">
                     <div class="col-sm-10 col-sm-offset-1 col-xs-12 col-xs-offset-0">
@@ -25,7 +25,7 @@
 
                         {!! Form::model($skill, [
                             
-                            'url' => ['/admin/skill', $skill->id, 'update'],
+                            'url' => ['/SwimAdmin/skill', $skill->id, 'update'],
                             'class' => 'form-horizontal',
                             'files' => true
                         ]) !!}

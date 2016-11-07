@@ -1,11 +1,11 @@
-@extends('layouts.matrix') @section('dashboard') @include('admin.skill-cards.skill-dashboard') @endsection @section('content')
+@extends('layouts.matrix') @section('dashboard') @include('SwimAdmin.skill-cards.skill-dashboard') @endsection @section('content')
 
 
 
 
 <div class="widget-box">
     <div class="widget-title"> <span class="icon"> <i class="icon-list"></i> </span>
-        <h5><a  href="{{ url('admin/skill-cards/') }}">Cards</a> &gt;Create New Skill Card</h5>
+        <h5><a  href="{{ url('SwimAdmin/skill-cards/') }}">Cards</a> &gt;Create New Skill Card</h5>
     </div>
     <div class="container-fluid">
         <div class="row" style="margin-top:20px;">
@@ -17,7 +17,7 @@
                     <li>{{ $error }}</li>
                     @endforeach
                 </ul>
-                @endif {!! Form::open(['url' => '/admin/skill-cards', 'method' => 'post', 'class' => 'form-horizontal', 'files' => true]) !!}
+                @endif {!! Form::open(['url' => '/SwimAdmin/skill-cards', 'method' => 'post', 'class' => 'form-horizontal', 'files' => true]) !!}
 
                 <div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
                     {!! Form::label('name', 'Name', ['class' => 'col-md-4 control-label']) !!}

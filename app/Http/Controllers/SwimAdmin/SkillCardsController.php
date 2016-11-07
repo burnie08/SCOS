@@ -20,7 +20,7 @@ class SkillCardsController extends Controller
     {
         $skillcards = SkillCard::paginate(25);
 
-        return view('admin.skill-cards.index', compact('skillcards'));
+        return view('SwimAdmin.skill-cards.index', compact('skillcards'));
     }
 
     /**
@@ -30,7 +30,7 @@ class SkillCardsController extends Controller
      */
     public function create()
     {
-        return view('admin.skill-cards.create');
+        return view('SwimAdmin.skill-cards.create');
     }
 
     /**
@@ -51,7 +51,7 @@ class SkillCardsController extends Controller
 
         Session::flash('flash_message', 'SkillCard added!');
 
-        return redirect('admin/skill-cards');
+        return redirect('SwimAdmin/skill-cards');
     }
 
     /**
@@ -65,7 +65,7 @@ class SkillCardsController extends Controller
     {
         $skillcard = SkillCard::findOrFail($id);
 
-        return view('admin.skill-cards.show', compact('skillcard'));
+        return view('SwimAdmin.skill-cards.show', compact('skillcard'));
     }
 
     /**
@@ -79,7 +79,7 @@ class SkillCardsController extends Controller
     {
         $skillcard = SkillCard::findOrFail($id);
 
-        return view('admin.skill-cards.edit', compact('skillcard'));
+        return view('SwimAdmin.skill-cards.edit', compact('skillcard'));
     }
 
     /**
@@ -102,7 +102,7 @@ class SkillCardsController extends Controller
 
         Session::flash('flash_message', 'SkillCard updated!');
 
-        return redirect('admin/skill-cards');
+        return redirect('SwimAdmin/skill-cards');
     }
 
     /**
@@ -118,6 +118,6 @@ class SkillCardsController extends Controller
 
         Session::flash('flash_message', 'SkillCard deleted!');
 
-        return redirect('admin/skill-cards');
+        return redirect('SwimAdmin/skill-cards');
     }
 }

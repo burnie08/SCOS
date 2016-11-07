@@ -1,7 +1,7 @@
 @extends('layouts.matrix') 
 
 @section('dashboard')
-    @include('admin.skill-cards.skill-dashboard') 
+    @include('SwimAdmin.skill-cards.skill-dashboard') 
 @endsection
     
 @section('content')
@@ -16,7 +16,7 @@
                     <div class="col-sm-10 col-sm-offset-1 col-xs-12 col-xs-offset-0">
 
 
-                        <a href="{{ url('/admin/skill-cards/create') }}" class="btn btn-primary btn-xs" title="Add New SkillCard">Create New Card &nbsp;&nbsp;<span class="glyphicon glyphicon-plus" aria-hidden="true" /></a>
+                        <a href="{{ url('/SwimAdmin/skill-cards/create') }}" class="btn btn-primary btn-xs" title="Add New SkillCard">Create New Card &nbsp;&nbsp;<span class="glyphicon glyphicon-plus" aria-hidden="true" /></a>
                         <br/>
                         <br/>
                         <div class="table-responsive">
@@ -37,9 +37,9 @@
                                         <td>{{ $item->short_name }}</td>
                                         <td>
                                             
-                                            <a href="{{ url('/admin/skill-cards/' . $item->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit SkillCard"><span class="glyphicon glyphicon-pencil" aria-hidden="true" /></a>
-                                            {!! Form::open([ 'method'=>'DELETE', 'url' => ['/admin/skill-cards', $item->id], 'style' => 'display:inline' ]) !!} {!! Form::button('<span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete SkillCard" />', array( 'type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'title' => 'Delete SkillCard', 'onclick'=>'return confirm("Confirm delete?")' )) !!}
-                                            <a href="{{ url('/admin/skill/' . $item->id.'/showAll') }}" class="btn btn-success btn-xs" title="View SkillCard"><span>View Skills&nbsp;</span><span class="glyphicon glyphicon-eye-open" aria-hidden="true" /></a>
+                                            <a href="{{ url('/SwimAdmin/skill-cards/' . $item->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit SkillCard"><span class="glyphicon glyphicon-pencil" aria-hidden="true" /></a>
+                                            {!! Form::open([ 'method'=>'DELETE', 'url' => ['/SwimAdmin/skill-cards', $item->id], 'style' => 'display:inline' ]) !!} {!! Form::button('<span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete SkillCard" />', array( 'type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'title' => 'Delete SkillCard', 'onclick'=>'return confirm("Confirm delete?")' )) !!}
+                                            <a href="{{ url('/SwimAdmin/skill/' . $item->id.'/showAll') }}" class="btn btn-success btn-xs" title="View SkillCard"><span>View Skills&nbsp;</span><span class="glyphicon glyphicon-eye-open" aria-hidden="true" /></a>
                                             {!! Form::close() !!}
                                         </td>
                                     </tr>

@@ -23,7 +23,7 @@ class SkillController extends Controller
 
         $card = SkillCard::findOrFail($skill_card_id);
         //$skills = Skill::CardId($id)->get();
-        return view('admin.skill.index',compact('card'));
+        return view('SwimAdmin.skill.index',compact('card'));
 
 
         //return view('admin.skill.index', compact('skill'));
@@ -37,7 +37,7 @@ class SkillController extends Controller
     public function create($skill_card_id)
     {
         $card = SkillCard::findOrFail($skill_card_id);
-        return view('admin.skill.create',compact('card'));
+        return view('SwimAdmin.skill.create',compact('card'));
     }
 
     /**
@@ -58,7 +58,7 @@ class SkillController extends Controller
 
         Session::flash('flash_message', 'Skill added!');
 
-        return redirect('admin/skill/'.$request->input('skill_card_id').'/showAll');
+        return redirect('SwimAdmin/skill/'.$request->input('skill_card_id').'/showAll');
     }
 
     /**
@@ -72,7 +72,7 @@ class SkillController extends Controller
     {
         $skill = Skill::findOrFail($id);
 
-        return view('admin.skill.show', compact('skill'));
+        return view('SwimAdmin.skill.show', compact('skill'));
     }
 
     /**
@@ -86,7 +86,7 @@ class SkillController extends Controller
     {
         $skill = Skill::findOrFail($id);
 
-        return view('admin.skill.edit', compact('skill'));
+        return view('SwimAdmin.skill.edit', compact('skill'));
     }
 
     /**
@@ -109,7 +109,7 @@ class SkillController extends Controller
 
         Session::flash('flash_message', 'Skill updated!');
 
-        return redirect('admin/skill/'.$skill->skill_card_id.'/showAll');
+        return redirect('SwimAdmin/skill/'.$skill->skill_card_id.'/showAll');
     }
     /**
      * Remove the specified resource from storage.
@@ -126,6 +126,6 @@ class SkillController extends Controller
 
         Session::flash('flash_message', 'Skill deleted!');
 
-        return redirect('admin/skill/'.$skill->skill_card_id.'/showAll');
+        return redirect('SwimAdmin/skill/'.$skill->skill_card_id.'/showAll');
     }
 }

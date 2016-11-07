@@ -124,7 +124,7 @@
                         <a href="index.html"> <i class="icon-dashboard"></i> <span class="label label-important">20</span> My Dashboard </a>
                     </li>
                     <li class="bg_lg ">
-                        <a href="/admin/skill-cards"> <i class="icon-th"></i>Skill Cards</a>
+                        <a href="/SwimAdmin/skill-cards"> <i class="icon-th"></i>Skill Cards</a>
                     </li>
                     
                     <li class="bg_ls ">
