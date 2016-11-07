@@ -14,9 +14,7 @@
 
 //This is the test comment to test rebasing
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'SwimAdmin\\SkillCardsController@index');
 
 Route::get('search', function () {
    return view('Instructors.search.search');
