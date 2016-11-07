@@ -126,6 +126,9 @@
                     <li class="bg_lg ">
                         <a href="/SwimAdmin/skill-cards"> <i class="icon-th"></i>Skill Cards</a>
                     </li>
+                    <li class="bg_lo ">
+                        <a href="/SwimAdmin/skill-levels"> <i class="icon-th-list"></i>Skill Levels</a>
+                    </li>
                     
                     <li class="bg_ls ">
                         <a href="/search"> <i class="icon-search"></i>Search</a>

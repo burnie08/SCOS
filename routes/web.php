@@ -47,3 +47,5 @@ Route::post('SwimAdmin/skill/{id}/update', 'SwimAdmin\\SkillController@update');
 
 Route::resource('SwimAdmin/skill-cards', 'SwimAdmin\\SkillCardsController');
 
+
+Route::resource('SwimAdmin/skill-levels', 'SwimAdmin\\SkillLevelsController');
