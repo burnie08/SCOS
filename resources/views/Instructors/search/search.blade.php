@@ -25,7 +25,7 @@
 
 <div class="widget-box">
     <div class="widget-title"> <span class="icon"> <i class="icon-list"></i> </span>
-        <h5>Search</h5>
+        <h5>Search For A Swimmer</h5>
     </div>
     <div class="row" style="margin-top:20px;">
        <!--Hide first name for now -->

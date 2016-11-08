@@ -1,5 +1,5 @@
-@extends('layouts.app')
-
+@extends('layouts.matrix')
+@section('dashboard') @include('Instructors.instructor-dashboard') @endsection 
 @section('content')
 <div class="container">
     <div class="row">

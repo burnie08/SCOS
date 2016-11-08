@@ -26,6 +26,10 @@
     </div>
 </div>
 <!--end-Footer-part-->
-
+<script src="/js/jquery.uniform.js"></script>
+<script src="/js/matrix.popover.js"></script>
+<script src="/js/select2.min.js"></script>
+<script src="/js/jquery.dataTables.min.js"></script>
+<script src="/js/matrix.tables.js"></script>
 
 @endsection

@@ -54,6 +54,23 @@
         }
 
     </style>
+    
+    <script src="/js/excanvas.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.ui.custom.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.flot.min.js"></script>
+    <script src="/js/jquery.flot.resize.min.js"></script>
+    <script src="/js/jquery.peity.min.js"></script>
+    <script src="/js/fullcalendar.min.js"></script>
+    <script src="/js/matrix.js"></script>
+    
+    <script src="/js/jquery.gritter.min.js"></script>
+    <script src="/js/matrix.interface.js"></script>
+    <script src="/js/matrix.chat.js"></script>
+    <script src="/js/jquery.validate.js"></script>
+    <script src="/js/matrix.form_validation.js"></script>
+    <script src="/js/jquery.wizard.js"></script>
 </head>
 
 <body>
@@ -64,52 +81,59 @@
     </div>
     <!--close-Header-part-->
 
-
+ @if (Auth::user())
     <!--top-Header-menu-->
     <div id="user-nav" class="navbar navbar-inverse">
         <ul class="nav">
-            <li class="dropdown" id="profile-messages"><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">Welcome User</span><b class="caret"></b></a>
+            <li class="dropdown" id="profile-messages"><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">Welcome {{ Auth::user()->name }}</span><b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
                     <li class="divider"></li>
-                    <li><a href="#"><i class="icon-check"></i> My Tasks</a></li>
-                    <li class="divider"></li>
-                    <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+                    <li><a href="/logout"><i class="icon-key"></i> Log Out</a></li>
                 </ul>
             </li>
-            <li class="dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">Messages</span> <span class="label label-important">5</span> <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a class="sAdd" title="" href="#"><i class="icon-plus"></i> new message</a></li>
-                    <li class="divider"></li>
-                    <li><a class="sInbox" title="" href="#"><i class="icon-envelope"></i> inbox</a></li>
-                    <li class="divider"></li>
-                    <li><a class="sOutbox" title="" href="#"><i class="icon-arrow-up"></i> outbox</a></li>
-                    <li class="divider"></li>
-                    <li><a class="sTrash" title="" href="#"><i class="icon-trash"></i> trash</a></li>
-                </ul>
-            </li>
-            <li class=""><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">Settings</span></a></li>
-            <li class=""><a title="" href="login.html"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
+           
+                @if (Auth::user()->hasRole('admin'))
+                    <li class="dropdown" id="security"><a href="#" data-toggle="dropdown" data-target="" class="dropdown-toggle"><i class="icon icon-cog"></i> <span class="text">Security</span>  <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="sAdd" title="" href="/admin/users"><i class="icon-plus"></i>Users</a></li>
+                            <li class="divider"></li>
+                            <li><a class="sInbox" title="" href="/admin/roles"><i class="icon-envelope"></i> Roles</a></li>
+                            <li class="divider"></li>
+                            <li><a class="sOutbox" title="" href="{{url('/admin/generator')}}"><i class="icon-arrow-up"></i>Crud Generator</a></li>
+                            <li class="divider"></li>
+
+                        </ul>
+                    </li>
+                 @endif
+           
+            <li class=""><a title="" href="/logout"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
         </ul>
     </div>
+    @endif
     <!--close-top-Header-menu-->
-    <!--start-top-serch-->
+    <!--start-top-serch
     <div id="search">
         <input type="text" placeholder="Search here..." />
         <button type="submit" class="tip-bottom" title="Search"><i class="icon-search icon-white"></i></button>
     </div>
+    -->
     <!--close-top-serch-->
     <!--sidebar-menu-->
-    <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
-        <ul>
-            <li id="sb-admin"><a href="/admin"><i class="icon icon-home"></i> <span>Security</span></a> </li>
-            <li id="sb-swim-admin"> <a href="/SwimAdmin/skill-cards"><i class="icon icon-th"></i> <span>Swim Admin</span></a> </li>
-            <li id="sb-swim-instructor"> <a href="/search"><i class="icon icon-th"></i> <span>Swim Instructors</span></a> </li>
-
-        </ul>
-    </div>
-    <!--sidebar-menu-->
-
+    @if (Auth::user())
+         @if (Auth::user()->hasRole(['swim-admin','admin']))
+        <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+            <ul>
+             @if (Auth::user()->hasRole('admin'))
+                <li id="sb-admin"><a href="/admin"><i class="icon icon-home"></i> <span>Security</span></a> </li>
+              @endif
+                <li id="sb-swim-admin"> <a href="/SwimAdmin/skill-cards"><i class="icon icon-th"></i> <span>Swim Admin</span></a> </li>
+                <li id="sb-swim-instructor"> <a href="/search"><i class="icon icon-th"></i> <span>Swim Instructors</span></a> </li>
+            </ul>
+        </div>
+        <!--sidebar-menu-->
+        @endif
+    @endif
     <!--main-container-part-->
     <div id="content">
         <!--breadcrumbs-->
@@ -150,28 +174,10 @@
 
     <!--end-Footer-part-->
 
-    <script src="/js/excanvas.min.js"></script>
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/jquery.ui.custom.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/jquery.flot.min.js"></script>
-    <script src="/js/jquery.flot.resize.min.js"></script>
-    <script src="/js/jquery.peity.min.js"></script>
-    <script src="/js/fullcalendar.min.js"></script>
-    <script src="/js/matrix.js"></script>
     
-    <script src="/js/jquery.gritter.min.js"></script>
-    <script src="/js/matrix.interface.js"></script>
-    <script src="/js/matrix.chat.js"></script>
-    <script src="/js/jquery.validate.js"></script>
-    <script src="/js/matrix.form_validation.js"></script>
-    <script src="/js/jquery.wizard.js"></script>
-    <script src="/js/jquery.uniform.js"></script>
-    <script src="/js/select2.min.js"></script>
-    <script src="/js/matrix.popover.js"></script>
-    <script src="/js/select2.min.js"></script>
-    <script src="/js/jquery.dataTables.min.js"></script>
-    <script src="/js/matrix.tables.js"></script>
+    
+   
+
 
 
 

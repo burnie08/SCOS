@@ -35,13 +35,24 @@ trait HasRoles
      *
      * @return boolean
      */
-    public function hasRole($role)
+    public function hasRole($roles)
     {
-        if (is_string($role)) {
-            return $this->roles->contains('name', $role);
+        //print_r($this->roles->contains('name', 'admin'));
+        if (is_string($roles)) {
+            return $this->roles->contains('name', $roles);
         }
-
-        return !!$role->intersect($this->roles)->count();
+        //must be an array
+        foreach($roles as $role)
+        {
+            if($this->roles->contains('name', $role))
+            {
+                return true;
+            }
+        }
+        return false;
+        
+        // this was throwing a fatal exception; not sure why
+       // return !!$role->intersect($this->roles)->count();
     }
 
     /**
