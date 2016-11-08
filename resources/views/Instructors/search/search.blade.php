@@ -1,4 +1,8 @@
-@extends('layouts.matrix') @section('dashboard') @include('SwimAdmin.skill-cards.skill-dashboard') @endsection @section('content')
+@extends('layouts.matrix') 
+
+@section('dashboard') @include('Instructors.instructor-dashboard') @endsection 
+
+@section('content')
 
 
 <style>

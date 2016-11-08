@@ -1,4 +1,8 @@
-@extends('layouts.matrix') @section('dashboard') @include('admin.skill-cards.skill-dashboard') @endsection @section('content')
+@extends('layouts.matrix') 
+
+@section('dashboard') @include('Instructors.instructor-dashboard') @endsection 
+
+@section('content')
 <div class="widget-box">
     <div class="widget-content nopadding">
         <table class="table table-bordered data-table">
