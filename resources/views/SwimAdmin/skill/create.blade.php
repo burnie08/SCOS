@@ -1,7 +1,7 @@
 @extends('layouts.matrix') 
 
 @section('dashboard')
-    @include('SwimAdmin.skill-cards.skill-dashboard') 
+    @section('dashboard') @include('SwimAdmin.swim-admin-dashboard') @endsection
 @endsection
 
 @section('content')
