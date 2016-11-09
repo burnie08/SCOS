@@ -6,12 +6,12 @@
 
     <div class="panel-body">
 
-        <a href="{{ url('/admin/users/create') }}" class="btn btn-primary pull-right btn-sm">Add New User</a>
+        <a href="{{ url('/admin/users/create') }}" class="btn btn-primary  btn-sm">Add New User</a>
         <br/>
         <br/>
 
         <div class="table-responsive">
-            <table class="table table-borderless">
+            <table class="table table-borderless data-table">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -22,7 +22,7 @@
                 </thead>
                 <tbody>
                     @foreach($users as $item)
-                    <tr>
+                    <tr class="gradeX">
                         <td>{{ $item->id }}</td>
                         <td><a href="{{ url('/admin/users', $item->id) }}">{{ $item->name }}</a></td>
                         <td>{{ $item->email }}</td>
@@ -40,4 +40,10 @@
 
     </div>
 </div>
+
+<script src="/js/jquery.uniform.js"></script>
+<script src="/js/matrix.popover.js"></script>
+<script src="/js/select2.min.js"></script>
+<script src="/js/jquery.dataTables.min.js"></script>
+<script src="/js/matrix.tables.js"></script>
 @endsection
