@@ -3,7 +3,7 @@
     <div class="quick-actions_homepage">
         <ul class="quick-actions">
             <li class="bg_ls ">
-                <a href="/search"> <i class="icon-search"></i>Search</a>
+                <a href="/search"> <i class="icon-search"></i>Search Swimmers</a>
             </li>
         </ul>
     </div>
