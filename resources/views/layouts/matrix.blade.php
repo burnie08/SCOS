@@ -77,7 +77,7 @@
 
     <!--Header-part-->
     <div id="header">
-        <h1><a href="dashboard.html">Swim Admin</a></h1>
+        <h1><a href="/">Swim Admin</a></h1>
     </div>
     <!--close-Header-part-->
 
@@ -96,11 +96,11 @@
                 @if (Auth::user()->hasRole('admin'))
                     <li class="dropdown" id="security"><a href="#" data-toggle="dropdown" data-target="" class="dropdown-toggle"><i class="icon icon-cog"></i> <span class="text">Security</span>  <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a class="sAdd" title="" href="/admin/users"><i class="icon-plus"></i>Users</a></li>
+                            <li><a class="sAdd" title="" href="/admin/users"><i class="icon-user"></i>Users</a></li>
                             <li class="divider"></li>
-                            <li><a class="sInbox" title="" href="/admin/roles"><i class="icon-envelope"></i> Roles</a></li>
+                            <li><a class="sInbox" title="" href="/admin/roles"><i class="icon-key"></i> Roles</a></li>
                             <li class="divider"></li>
-                            <li><a class="sOutbox" title="" href="{{url('/admin/generator')}}"><i class="icon-arrow-up"></i>Crud Generator</a></li>
+                            <li><a class="sOutbox" title="" href="{{url('/admin/generator')}}"><i class="icon-plus"></i>Crud Generator</a></li>
                             <li class="divider"></li>
 
                         </ul>
@@ -138,7 +138,7 @@
     <div id="content">
         <!--breadcrumbs-->
         <div id="content-header">
-            <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a></div>
+            <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a></div>
         </div>
         <!--End-breadcrumbs-->
 

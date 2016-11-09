@@ -37,6 +37,9 @@ Route::group(['prefix' => '', 'middleware' => ['auth', 'roles'], 'roles' => ['sw
 		Route::get('search', function () {
             return view('Instructors.search.search');
         });
+        Route::get('/', function () {
+            return view('Instructors.search.search');
+        });
         Route::get('search/lastNamesLike', 'Instructors\\SwimmersController@lastNamesLike');
         Route::get('/home', 'HomeController@index');
 
@@ -56,7 +59,7 @@ Route::group(['prefix' => '', 'middleware' => ['auth', 'roles'], 'roles' => ['ad
 
     Route::resource('SwimAdmin/skill-cards', 'SwimAdmin\\SkillCardsController');
     Route::resource('SwimAdmin/skill-levels', 'SwimAdmin\\SkillLevelsController');
-    Route::get('/', 'SwimAdmin\\SkillCardsController@index');
+    
 
 });
 

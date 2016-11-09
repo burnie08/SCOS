@@ -9,7 +9,7 @@
 
     <div class="panel-body">
 
-        <a href="{{ url('/SwimAdmin/skill-levels/create') }}" class="btn btn-primary btn-xs" title="Add New SkillLevel"><span class="glyphicon glyphicon-plus" aria-hidden="true" /></a>
+        <a href="{{ url('/SwimAdmin/skill-levels/create') }}" class="btn btn-primary btn-xs" title="Add New Skill Level"><span>Create New Skill Level &nbsp;</span><span class="glyphicon glyphicon-plus" aria-hidden="true" /></a>
         <br/>
         <br/>
         <div class="table-responsive">
