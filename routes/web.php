@@ -32,8 +32,11 @@ Route::group(['prefix' => '', 'middleware' => ['auth', 'roles'], 'roles' => 'adm
 		
 });
 
+// Swim Instructors
 Route::group(['prefix' => '', 'middleware' => ['auth', 'roles'], 'roles' => ['swim-instructor','admin', 'swim-admin']], function (){
-   
+    
+    
+        
 		Route::get('search', function () {
             return view('Instructors.search.search');
         });
@@ -42,9 +45,18 @@ Route::group(['prefix' => '', 'middleware' => ['auth', 'roles'], 'roles' => ['sw
         });
         Route::get('search/lastNamesLike', 'Instructors\\SwimmersController@lastNamesLike');
         Route::get('/home', 'HomeController@index');
-
+    
+       
         Route::resource('Instructors/swimmers', 'Instructors\\SwimmersController');
         Route::resource('proficiency-levels', 'SwimAdmin\\ProficiencyLevelsController');
+        
+        Route::get('/lessons/{swimmer_id}/show', 'Instructors\\lessonsController@show');
+        
+        Route::post('/lessons/{swimmer_id}/{skill_card_id}/createLesson','Instructors\\lessonsController@createLesson');
+        Route::get('/lessons/{swimmer_id}/{skill_card_id}/evalsCreate', 'Instructors\\lessonsController@evalsCreate');
+        Route::get('/lessons/{lesson_id}/evalsEdit','Instructors\\lessonsController@evalsEdit');
+        Route::post('/lessons/{lesson_id}/evalsUpdate','Instructors\\lessonsController@evalsUpdate');
+        Route::get('/lessons/{lesson_id}/{swimmer_id}/destroy','Instructors\\lessonsController@destroy');
     
 });
 
@@ -74,3 +86,6 @@ Route::get('/logout', function()
 
 
 
+
+Route::resource('Instructors/lessons', 'Instructors\\lessonsController');
+Route::resource('Instructors/evals', 'Instructors\\evalsController');

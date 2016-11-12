@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Instructors;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Instructors\Swimmer;
+use App\eval;
 use Illuminate\Http\Request;
 use Session;
 
-class SwimmersController extends Controller
+class evalsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +18,9 @@ class SwimmersController extends Controller
      */
     public function index()
     {
-        //$swimmers = Swimmer::all();
-        $swimmers = Swimmer::paginate(2500);
+        $evals = eval::paginate(25);
 
-        return view('Instructors.swimmers.index', compact('swimmers'));
+        return view('Instructors.evals.index', compact('evals'));
     }
 
     /**
@@ -31,7 +30,7 @@ class SwimmersController extends Controller
      */
     public function create()
     {
-        return view('Instructors.swimmers.create');
+        return view('Instructors.evals.create');
     }
 
     /**
@@ -44,16 +43,17 @@ class SwimmersController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-			'first_name' => 'required',
-			'last_name' => 'required'
+			'lesson_id' => 'required',
+			'skill_id' => 'required',
+			'skill_level_id' => 'required'
 		]);
         $requestData = $request->all();
         
-        Swimmer::create($requestData);
+        eval::create($requestData);
 
-        Session::flash('flash_message', 'Swimmer added!');
+        Session::flash('flash_message', 'eval added!');
 
-        return redirect('/search');
+        return redirect('Instructors/evals');
     }
 
     /**
@@ -65,9 +65,9 @@ class SwimmersController extends Controller
      */
     public function show($id)
     {
-        $swimmer = Swimmer::findOrFail($id);
+        $eval = eval::findOrFail($id);
 
-        return view('Instructors.swimmers.show', compact('swimmer'));
+        return view('Instructors.evals.show', compact('eval'));
     }
 
     /**
@@ -79,9 +79,9 @@ class SwimmersController extends Controller
      */
     public function edit($id)
     {
-        $swimmer = Swimmer::findOrFail($id);
+        $eval = eval::findOrFail($id);
 
-        return view('Instructors.swimmers.edit', compact('swimmer'));
+        return view('Instructors.evals.edit', compact('eval'));
     }
 
     /**
@@ -95,23 +95,18 @@ class SwimmersController extends Controller
     public function update($id, Request $request)
     {
         $this->validate($request, [
-			'first_name' => 'required',
-			'last_name' => 'required'
+			'lesson_id' => 'required',
+			'skill_id' => 'required',
+			'skill_level_id' => 'required'
 		]);
         $requestData = $request->all();
         
-        $swimmer = Swimmer::findOrFail($id);
-        $swimmer->update($requestData);
+        $eval = eval::findOrFail($id);
+        $eval->update($requestData);
 
-        Session::flash('flash_message', 'Swimmer updated!');
+        Session::flash('flash_message', 'eval updated!');
 
-        return redirect('/search');
-    }
-    public function lastNamesLike(Request $request)
-    {
-        $last_name = $request->last_name;
-        $swimmers = Swimmer::lastNamesLike($last_name);
-        return view('Instructors.search.results',['swimmers'=>$swimmers]);
+        return redirect('Instructors/evals');
     }
 
     /**
@@ -123,10 +118,10 @@ class SwimmersController extends Controller
      */
     public function destroy($id)
     {
-        Swimmer::destroy($id);
+        eval::destroy($id);
 
-        Session::flash('flash_message', 'Swimmer deleted!');
+        Session::flash('flash_message', 'eval deleted!');
 
-        return redirect('Instructors/swimmers');
+        return redirect('Instructors/evals');
     }
 }

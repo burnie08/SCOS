@@ -91,6 +91,7 @@ $(document).ready(function(){
 	$('.tip-bottom').tooltip({ placement: 'bottom' });	
 	
 	// === Search input typeahead === //
+    
 	$('#search input[type=text]').typeahead({
 		source: ['Dashboard','Form elements','Common Elements','Validation','Wizard','Buttons','Icons','Interface elements','Support','Calendar','Gallery','Reports','Charts','Graphs','Widgets'],
 		items: 4

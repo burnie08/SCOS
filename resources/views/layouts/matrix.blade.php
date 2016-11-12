@@ -71,6 +71,8 @@
     <script src="/js/jquery.validate.js"></script>
     <script src="/js/matrix.form_validation.js"></script>
     <script src="/js/jquery.wizard.js"></script>
+    <script src="/js/jquery.uniform.js"></script>
+    <script src="/js/select2.min.js"></script>
 </head>
 
 <body>
@@ -141,20 +143,21 @@
             <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a></div>
         </div>
         <!--End-breadcrumbs-->
-
+        @if (Session::has('flash_message'))
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{ Session::get('flash_message') }}
+                </div>
+        @endif 
         <!--Action boxes-->
         @yield('dashboard')
             <!-- First Content Area -->
             <div class="row-fluid">
 
-                @if (Session::has('flash_message'))
-                <div class="alert alert-success">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    {{ Session::get('flash_message') }}
-                </div>
+                
 
 
-                @endif @yield('content')
+            @yield('content')
             </div>
 
 
