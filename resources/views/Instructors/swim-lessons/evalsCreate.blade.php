@@ -47,10 +47,8 @@
                         <tr>
                             <td>
                                 <div class="input-group date" data-provide="datepicker">
-                                    <input type="text" name="lessonDate" class="form-control datepicker" readonly="readonly" >
-                                    <div class="input-group-addon">
-                                        <span class="glyphicon glyphicon-th"></span>
-                                    </div>
+                                    <input type="text" name="lessonDate" class="form-control datepicker" readonly="readonly" style="width:50%;margin-right:10px;" >
+                                    
                                 </div>
                                 
                             </td>
@@ -70,7 +68,16 @@
         </div>
     </div>
 <script>
-    $('.datepicker').datepicker().datepicker("setDate", new Date());;
+    //$('.datepicker').datepicker().datepicker("setDate", new Date());
+    $( function() {
+    $( ".datepicker" ).datepicker({
+      showOn: "button",
+      buttonImage: "/img/calendar.gif",
+      buttonImageOnly: true,
+      buttonText: "Select date",
+    }).datepicker("setDate",  new Date());
+  } );
+    
 </script>
         </div>
             <!--

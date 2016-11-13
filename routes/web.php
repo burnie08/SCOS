@@ -37,12 +37,8 @@ Route::group(['prefix' => '', 'middleware' => ['auth', 'roles'], 'roles' => ['sw
     
     
         
-		Route::get('search', function () {
-            return view('Instructors.search.search');
-        });
-        Route::get('/', function () {
-            return view('Instructors.search.search');
-        });
+		Route::get('/search', 'Instructors\\SwimmersController@mySwimmers');
+        Route::get('/', 'Instructors\\SwimmersController@mySwimmers');
         Route::get('search/lastNamesLike', 'Instructors\\SwimmersController@lastNamesLike');
         Route::get('/home', 'HomeController@index');
     

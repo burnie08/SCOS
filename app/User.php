@@ -26,4 +26,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    public function swimmers()
+    {
+        
+        return $this->belongsToMany('\App\Instructors\Swimmer','lessons')->orderBy('last_name')->orderBy('first_name')->distinct();
+        
+    }
 }

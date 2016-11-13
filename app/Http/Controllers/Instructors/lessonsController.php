@@ -75,7 +75,7 @@ class lessonsController extends Controller
         $swimmer = Swimmer::findOrFail($swimmer_id);
         $cards = SkillCard::all();
         //$lessons = lesson::find(14);
-        $lessons = lesson::query()->where('swimmer_id', '=', $swimmer_id)->get();
+        $lessons = lesson::query()->where('swimmer_id', '=', $swimmer_id)->get()->sortByDesc("lesson_date");
         
         
         return view('Instructors.swim-lessons.lessons',compact('swimmer','cards','lessons'));

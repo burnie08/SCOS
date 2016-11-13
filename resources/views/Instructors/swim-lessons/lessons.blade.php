@@ -1,10 +1,10 @@
 @extends('layouts.matrix') @section('dashboard') @include('Instructors.instructor-dashboard') @endsection @section('content')
 
 <style>
-    span.swimmer.glyphicon
-    {
-        padding: 4px  0px;
+    span.swimmer.glyphicon {
+        padding: 4px 0px;
     }
+
 </style>
 
 <div class="widget-box">
@@ -14,15 +14,6 @@
 
     <div class="widget-content ">
 
-
-        <div class="row-fluid">
-            <div class="span9">
-                
-            </div>
-        </div>
-
-        
-            
         <div class="table-responsive" style="max-width:300px;">
             <table class="table table-borderless">
                 <tbody>
@@ -30,9 +21,9 @@
                         <th>
                         </th>
                         <td>
-                            <a href="{{ url('Instructors/swimmers/' . $swimmer->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit Swimmer" ><span class="swimmer glyphicon glyphicon-pencil" aria-hidden="true" /></a>
+                            <a href="{{ url('Instructors/swimmers/' . $swimmer->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit Swimmer"><span class="swimmer glyphicon glyphicon-pencil" aria-hidden="true" /></a>
                             {!! Form::open([ 'method'=>'DELETE', 'url' => ['Instructors/swimmers', $swimmer->id], 'style' => 'display:inline' ]) !!} {!! Form::button('<span class="swimmer glyphicon glyphicon-trash" aria-hidden="true" />', array( 'type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'title' => 'Delete Swimmer', 'onclick'=>'return confirm("Confirm delete?")' ))!!} {!! Form::close() !!}
-                        
+
                         </td>
                     </tr>
                     <tr>
@@ -49,6 +40,7 @@
                     </tr>
                 </tbody>
             </table>
+
         </div>
     </div>
 </div>
@@ -91,10 +83,10 @@
                     <td>{{$lesson->instructor->name}}</td>
                     <td>{{$lesson->skillcard->name}}</td>
                     <td>
-                        <a href="{{ url('/lessons/' . $lesson->id . '/evalsEdit') }}" class="btn btn-primary btn-xs" title="Edit Lesson" ><span class="swimmer glyphicon glyphicon-pencil" aria-hidden="true" /></a>
-                            {!! Form::open([ 'method'=>'get', 'url' => ['/lessons', $lesson->id,$lesson->swimmer->id,'destroy'], 'style' => 'display:inline' ]) !!} {!! Form::button('<span class="swimmer glyphicon glyphicon-trash" aria-hidden="true" />', array( 'type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'title' => 'Delete Lesson', 'onclick'=>'return confirm("Confirm delete?")' ))!!} {!! Form::close() !!}
-                    
-                    
+                        <a href="{{ url('/lessons/' . $lesson->id . '/evalsEdit') }}" class="btn btn-primary btn-xs" title="Edit Lesson"><span class="swimmer glyphicon glyphicon-pencil" aria-hidden="true" /></a>
+                        {!! Form::open([ 'method'=>'get', 'url' => ['/lessons', $lesson->id,$lesson->swimmer->id,'destroy'], 'style' => 'display:inline' ]) !!} {!! Form::button('<span class="swimmer glyphicon glyphicon-trash" aria-hidden="true" />', array( 'type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'title' => 'Delete Lesson', 'onclick'=>'return confirm("Confirm delete?")' ))!!} {!! Form::close() !!}
+
+
                     </td>
                 </tr>
                 @endforeach @endif

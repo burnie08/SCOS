@@ -46,10 +46,8 @@
                         <tr>
                             <td>
                                 <div class="input-group date" data-provide="datepicker">
-                                    <input type="text" name="lessonDate" class="form-control datepicker" readonly="readonly" >
-                                    <div class="input-group-addon">
-                                        <span class="glyphicon glyphicon-th"></span>
-                                    </div>
+                                    <input type="text" name="lessonDate" class="form-control datepicker" readonly="readonly" style="width:50%;margin-right:10px;" >
+                                    
                                 </div>
                                 
                             </td>
@@ -73,8 +71,16 @@
     //set Pacific time
     date = new Date('{{$lesson->lesson_date}} GMT-0800');
     
-    $('.datepicker').datepicker().datepicker("setDate",  date);
-    
+    //$('.datepicker').datepicker().datepicker("setDate",  date);
+    $( function() {
+    $( ".datepicker" ).datepicker({
+      showOn: "button",
+      buttonImage: "/img/calendar.gif",
+      buttonImageOnly: true,
+      buttonText: "Select date",
+      setDate: date
+    }).datepicker("setDate",  date);
+  } );
     
 </script>
         </div>

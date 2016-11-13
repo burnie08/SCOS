@@ -6,8 +6,10 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Instructors\Swimmer;
+use App\User;
 use Illuminate\Http\Request;
 use Session;
+use Illuminate\Support\Facades\Auth;
 
 class SwimmersController extends Controller
 {
@@ -66,7 +68,7 @@ class SwimmersController extends Controller
     public function show($id)
     {
         $swimmer = Swimmer::findOrFail($id);
-
+        //dd($swimmer->lastAttended());
         return view('Instructors.swimmers.show', compact('swimmer'));
     }
 
@@ -112,6 +114,15 @@ class SwimmersController extends Controller
         $last_name = $request->last_name;
         $swimmers = Swimmer::lastNamesLike($last_name);
         return view('Instructors.search.results',['swimmers'=>$swimmers]);
+    }
+    
+    public function mySwimmers()
+    {
+        $user_id = Auth::id();
+        $user = User::findOrFail( $user_id);
+        $swimmers = $user->swimmers()->get();
+       
+        return view('Instructors.search.search',compact('swimmers'));
     }
 
     /**
