@@ -31,4 +31,5 @@ class Skill extends Model
     {
         return $this->hasMany('\App\SwimAdmin\SkillCard');
     }
+    
 }

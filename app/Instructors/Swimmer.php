@@ -3,7 +3,7 @@
 namespace App\Instructors;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Facades\DB;
 class Swimmer extends Model
 {
     /**
@@ -33,31 +33,49 @@ class Swimmer extends Model
         ->get();
     }
     /**
-    * Gets the highest skill card the student has completed
+    * Gets distinct skill cards for a swimmer based on lessons
     *
     **/
-    public function skillCards()
+    public function getSkillCardsAttribute()
     {
-         return $this->belongsTo('\App\Instructors\lesson','id','swimmer_id');
-        
-         //$skill_card_id = $this->belongsTo('\App\Instructors\lesson','id','swimmer_id')->max('skill_card_id');
-         //dd($skill_card_id);
-         //$skill_card = \App\SwimAdmin\SkillCard::find($skill_card_id);
-        //return $skill_card->name;
-        //return $skill_card;
+         return DB::table('skill_cards')
+             ->join('lessons', 'skill_cards.id', '=', 'lessons.skill_card_id')
+             ->select('lessons.skill_card_id',  'skill_cards.name')
+             ->where('lessons.swimmer_id','=',$this->id)
+             ->distinct()->get();
+         //return $this->belongsTo('\App\Instructors\lesson','id','swimmer_id');
     }
     
+    public function skills($skill_card_id)
+    {
+         return DB::table('skills')->orderBy('name')
+             ->select('id', 'name')
+             ->where('skills.skill_card_id','=',$skill_card_id)
+             ->get();
+             
+             
+         //return $this->belongsTo('\App\Instructors\lesson','id','swimmer_id');
+    }
+    
+    // get evals sorted by lesson_date
+    public function evals($skill_id)
+    {
+        
+        return DB::table('evals')
+            ->orderBy('lessons.lesson_date')
+            ->join('lessons', 'lessons.id', '=', 'evals.lesson_id')
+            ->join('skill_levels', 'skill_levels.id', '=', 'evals.skill_level_id')
+            ->select('evals.skill_level_id', 'lessons.lesson_date','evals.lesson_id', 'skill_levels.name')
+            ->where('lessons.swimmer_id','=',$this->id)
+            ->where('evals.skill_id','=',$skill_id)->get();
+    }
     /**
     * Gets the last time the student attended class.
     *
     **/
     public function lessons()
     {
-         return $max_lesson_date = $this->belongsTo('\App\Instructors\lesson','id','swimmer_id');
-         //$max_lesson_date = $this->belongsTo('\App\Instructors\lesson','id','swimmer_id')->max('lesson_date');
-         
-        //return $max_lesson_date;
-        //return null;
+         return $this->belongsTo('\App\Instructors\lesson','id','swimmer_id');
     }
     public function getLastAttendedAttribute() {
         
@@ -76,10 +94,10 @@ class Swimmer extends Model
         
     }
     public function getMaxSkillCardAttribute() {
-        $skill_cards = $this->skillCards();
-        if($skill_cards)
+        $lessons = $this->lessons();
+        if($lessons)
         {
-            $max_skill_card_id = $skill_cards->max('skill_card_id');
+            $max_skill_card_id = $lessons->max('skill_card_id');
             if($max_skill_card_id)
             {
                 $skill_card = \App\SwimAdmin\SkillCard::find($max_skill_card_id);

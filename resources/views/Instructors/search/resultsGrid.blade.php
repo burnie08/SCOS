@@ -6,7 +6,7 @@
                     <th>Index</th>
                     <th>First Name</th>
                     <th>Last Name</th>
-                    <th>Last Skill Card</th>
+                    <th>Max Skill Card Achieved</th>
                     <th>Last Date Attended</th>
                     <th>Actions</th>
                 </tr>
@@ -35,6 +35,7 @@
                             )) !!}
                         {!! Form::close() !!}
                         <a href="{{ url('/lessons/'.$item->id.'/show') }}" class="btn btn-success btn-xs" title="View Swimmer"><span>Lessons &nbsp;</span><span class="glyphicon glyphicon-eye-open" aria-hidden="true"/></a>
+                        <a href="{{ url('/lessons/'.$item->id.'/lessonsReport') }}" class="btn btn-success btn-xs" title="Lessons Report"><span>Report &nbsp;</span><span class="glyphicon glyphicon-eye-open" aria-hidden="true"/></a>
                     </td>
                 </tr>
                 @endforeach

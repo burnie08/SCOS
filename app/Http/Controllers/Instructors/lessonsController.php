@@ -228,4 +228,11 @@ class lessonsController extends Controller
 
         return redirect('/lessons/1/show');
     }
+    
+    public function lessonsReport($swimmer_id)
+    {
+        $swimmer = Swimmer::findOrFail($swimmer_id);
+        //dd($swimmer->skillCards);
+        return view('Instructors.swim-lessons.lessonsReport', compact('swimmer'));
+    }
 }

@@ -35,8 +35,8 @@ Route::group(['prefix' => '', 'middleware' => ['auth', 'roles'], 'roles' => 'adm
 // Swim Instructors
 Route::group(['prefix' => '', 'middleware' => ['auth', 'roles'], 'roles' => ['swim-instructor','admin', 'swim-admin']], function (){
     
-    
         
+        Route::get('/lessons/{swimmer_id}/lessonsReport', 'Instructors\\lessonsController@lessonsReport');
 		Route::get('/search', 'Instructors\\SwimmersController@mySwimmers');
         Route::get('/', 'Instructors\\SwimmersController@mySwimmers');
         Route::get('search/lastNamesLike', 'Instructors\\SwimmersController@lastNamesLike');
@@ -53,6 +53,9 @@ Route::group(['prefix' => '', 'middleware' => ['auth', 'roles'], 'roles' => ['sw
         Route::get('/lessons/{lesson_id}/evalsEdit','Instructors\\lessonsController@evalsEdit');
         Route::post('/lessons/{lesson_id}/evalsUpdate','Instructors\\lessonsController@evalsUpdate');
         Route::get('/lessons/{lesson_id}/{swimmer_id}/destroy','Instructors\\lessonsController@destroy');
+    
+        Route::resource('Instructors/lessons', 'Instructors\\lessonsController');
+        Route::resource('Instructors/evals', 'Instructors\\evalsController');
     
 });
 
@@ -83,5 +86,3 @@ Route::get('/logout', function()
 
 
 
-Route::resource('Instructors/lessons', 'Instructors\\lessonsController');
-Route::resource('Instructors/evals', 'Instructors\\evalsController');
